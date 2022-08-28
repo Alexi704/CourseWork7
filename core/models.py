@@ -5,13 +5,15 @@ from django.contrib.auth.models import AbstractUser
 class UserRoles:
     USER = 'user'
     ADMIN = 'admin'
-    choices = (
+    choices = [
         (USER, USER),
         (ADMIN, ADMIN),
-    )
+    ]
 
 
 class User(AbstractUser):
+    """Модель пользователя"""
+
     first_name = models.CharField(
         max_length=64,
         verbose_name='Имя',
@@ -34,10 +36,7 @@ class User(AbstractUser):
         verbose_name='Роль пользователя',
         help_text='Выбирите роль пользователя.',
     )
-    is_active = models.BooleanField(
-        verbose_name='Статус активности аккаунта',
-        help_text='Укажите, активен ли аккаунт.',
-    )
+
     image = models.ImageField(
         upload_to='users_avatars/',
         verbose_name='Аватарка',
@@ -49,4 +48,4 @@ class User(AbstractUser):
     class Meta:
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
-        ordering = ('id',)
+        ordering = ['id']
