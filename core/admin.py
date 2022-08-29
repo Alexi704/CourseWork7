@@ -1,9 +1,10 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from core.models import User
 
 
 @admin.register(User)
-class UserAdmin(admin.ModelAdmin):
+class UserAdmin(BaseUserAdmin):
     # Вывод отображаемых полей в админке, в разделе "Пользователи":
     list_display = ('username', 'email', 'first_name', 'last_name')
 
@@ -41,3 +42,8 @@ class UserAdmin(admin.ModelAdmin):
 
     # Полностью скрываем поля в админке
     # exclude = ('password',)
+
+
+# Меняем заголовок админки
+admin.site.site_title = 'Панель администратора «TodoList»'
+admin.site.site_header = 'Todo LIST: Администрирование'
