@@ -8,13 +8,10 @@ from core.models import User
 class UserAdmin(BaseUserAdmin):
     # Вывод отображаемых полей в админке, в разделе "Пользователи":
     list_display = ('username', 'email', 'first_name', 'last_name')
-
-    # Организуем поиск, по заданным полям (поиск происходит сразу по всем указанным полям):
+    # Организуем поиск, по заданным полям:
     search_fields = ('email', 'first_name', 'last_name', 'username')
-
     # Ставим фильтры (для сортировки пользователей):
     list_filter = ('is_staff', 'is_active', 'is_superuser')
-
     # Выставляем поля админки в нужном нам порядке
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
