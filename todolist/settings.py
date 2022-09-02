@@ -73,11 +73,11 @@ WSGI_APPLICATION = "todolist.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': os.environ.get('DB_ENGINE'),
-        'HOST': os.environ.get('DB_HOST'),
         'NAME': os.environ.get('DB_NAME'),
-        'PORT': os.environ.get('DB_PORT'),
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST', default='127.0.0.1'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 
