@@ -6,44 +6,44 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("core", "0002_alter_user_is_active"),
+        ('core', '0002_alter_user_is_active'),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name="user",
+            name='user',
             options={
-                "verbose_name": "Пользователь",
-                "verbose_name_plural": "Пользователи",
+                'verbose_name': 'Пользователь',
+                'verbose_name_plural': 'Пользователи',
             },
         ),
         migrations.RemoveField(
-            model_name="user",
-            name="image",
+            model_name='user',
+            name='image',
         ),
         migrations.RemoveField(
-            model_name="user",
-            name="role",
+            model_name='user',
+            name='role',
         ),
         migrations.AlterField(
-            model_name="user",
-            name="email",
+            model_name='user',
+            name='email',
             field=models.EmailField(
-                blank=True, max_length=254, verbose_name="email address"
+                blank=True, max_length=254, verbose_name='email address'
             ),
         ),
         migrations.AlterField(
-            model_name="user",
-            name="first_name",
+            model_name='user',
+            name='first_name',
             field=models.CharField(
-                blank=True, max_length=150, verbose_name="first name"
+                blank=True, max_length=150, verbose_name='first name'
             ),
         ),
         migrations.AlterField(
-            model_name="user",
-            name="last_name",
+            model_name='user',
+            name='last_name',
             field=models.CharField(
-                blank=True, max_length=150, verbose_name="last name"
+                blank=True, max_length=150, verbose_name='last name'
             ),
         ),
     ]

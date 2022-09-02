@@ -6,16 +6,16 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("core", "0003_alter_user_options_remove_user_image_and_more"),
+        ('core', '0003_alter_user_options_remove_user_image_and_more'),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name="user",
+            name='user',
             options={
-                "ordering": ["username", "id"],
-                "verbose_name": "Пользователь",
-                "verbose_name_plural": "Пользователи",
+                'ordering': ['username', 'id'],
+                'verbose_name': 'Пользователь',
+                'verbose_name_plural': 'Пользователи',
             },
         ),
     ]

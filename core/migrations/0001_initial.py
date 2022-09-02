@@ -2,8 +2,8 @@
 
 import django.contrib.auth.models
 import django.contrib.auth.validators
-from django.db import migrations, models
 import django.utils.timezone
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
@@ -11,148 +11,148 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ("auth", "0012_alter_user_first_name_max_length"),
+        ('auth', '0012_alter_user_first_name_max_length'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name="User",
+            name='User',
             fields=[
                 (
-                    "id",
+                    'id',
                     models.BigAutoField(
                         auto_created=True,
                         primary_key=True,
                         serialize=False,
-                        verbose_name="ID",
+                        verbose_name='ID',
                     ),
                 ),
-                ("password", models.CharField(max_length=128, verbose_name="password")),
+                ('password', models.CharField(max_length=128, verbose_name='password')),
                 (
-                    "last_login",
+                    'last_login',
                     models.DateTimeField(
-                        blank=True, null=True, verbose_name="last login"
+                        blank=True, null=True, verbose_name='last login'
                     ),
                 ),
                 (
-                    "is_superuser",
+                    'is_superuser',
                     models.BooleanField(
                         default=False,
-                        help_text="Designates that this user has all permissions without explicitly assigning them.",
-                        verbose_name="superuser status",
+                        help_text='Designates that this user has all permissions without explicitly assigning them.',
+                        verbose_name='superuser status',
                     ),
                 ),
                 (
-                    "username",
+                    'username',
                     models.CharField(
                         error_messages={
-                            "unique": "A user with that username already exists."
+                            'unique': 'A user with that username already exists.'
                         },
-                        help_text="Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.",
+                        help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.',
                         max_length=150,
                         unique=True,
                         validators=[
                             django.contrib.auth.validators.UnicodeUsernameValidator()
                         ],
-                        verbose_name="username",
+                        verbose_name='username',
                     ),
                 ),
                 (
-                    "is_staff",
+                    'is_staff',
                     models.BooleanField(
                         default=False,
-                        help_text="Designates whether the user can log into this admin site.",
-                        verbose_name="staff status",
+                        help_text='Designates whether the user can log into this admin site.',
+                        verbose_name='staff status',
                     ),
                 ),
                 (
-                    "date_joined",
+                    'date_joined',
                     models.DateTimeField(
-                        default=django.utils.timezone.now, verbose_name="date joined"
+                        default=django.utils.timezone.now, verbose_name='date joined'
                     ),
                 ),
                 (
-                    "first_name",
+                    'first_name',
                     models.CharField(
-                        help_text="Введите имя (максимум 64 символа).",
+                        help_text='Введите имя (максимум 64 символа).',
                         max_length=64,
-                        verbose_name="Имя",
+                        verbose_name='Имя',
                     ),
                 ),
                 (
-                    "last_name",
+                    'last_name',
                     models.CharField(
-                        help_text="Введите фамилию (максимум 64 символа).",
+                        help_text='Введите фамилию (максимум 64 символа).',
                         max_length=64,
-                        verbose_name="Фамилия",
+                        verbose_name='Фамилия',
                     ),
                 ),
                 (
-                    "email",
+                    'email',
                     models.EmailField(
-                        help_text="Укажите электронную почту.",
+                        help_text='Укажите электронную почту.',
                         max_length=254,
                         unique=True,
-                        verbose_name="email address",
+                        verbose_name='email address',
                     ),
                 ),
                 (
-                    "role",
+                    'role',
                     models.CharField(
-                        choices=[("user", "user"), ("admin", "admin")],
-                        default="user",
-                        help_text="Выбирите роль пользователя.",
+                        choices=[('user', 'user'), ('admin', 'admin')],
+                        default='user',
+                        help_text='Выбирите роль пользователя.',
                         max_length=20,
-                        verbose_name="Роль пользователя",
+                        verbose_name='Роль пользователя',
                     ),
                 ),
                 (
-                    "is_active",
+                    'is_active',
                     models.BooleanField(
-                        help_text="Укажите, активен ли аккаунт.",
-                        verbose_name="Статус активности аккаунта",
+                        help_text='Укажите, активен ли аккаунт.',
+                        verbose_name='Статус активности аккаунта',
                     ),
                 ),
                 (
-                    "image",
+                    'image',
                     models.ImageField(
                         blank=True,
-                        help_text="Выбирите свой аватар",
+                        help_text='Выбирите свой аватар',
                         null=True,
-                        upload_to="users_avatars/",
-                        verbose_name="Аватарка",
+                        upload_to='users_avatars/',
+                        verbose_name='Аватарка',
                     ),
                 ),
                 (
-                    "groups",
+                    'groups',
                     models.ManyToManyField(
                         blank=True,
-                        help_text="The groups this user belongs to. A user will get all permissions granted to each of their groups.",
-                        related_name="user_set",
-                        related_query_name="user",
-                        to="auth.group",
-                        verbose_name="groups",
+                        help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
+                        related_name='user_set',
+                        related_query_name='user',
+                        to='auth.group',
+                        verbose_name='groups',
                     ),
                 ),
                 (
-                    "user_permissions",
+                    'user_permissions',
                     models.ManyToManyField(
                         blank=True,
-                        help_text="Specific permissions for this user.",
-                        related_name="user_set",
-                        related_query_name="user",
-                        to="auth.permission",
-                        verbose_name="user permissions",
+                        help_text='Specific permissions for this user.',
+                        related_name='user_set',
+                        related_query_name='user',
+                        to='auth.permission',
+                        verbose_name='user permissions',
                     ),
                 ),
             ],
             options={
-                "verbose_name": "Пользователь",
-                "verbose_name_plural": "Пользователи",
-                "ordering": ["id"],
+                'verbose_name': 'Пользователь',
+                'verbose_name_plural': 'Пользователи',
+                'ordering': ['id'],
             },
             managers=[
-                ("objects", django.contrib.auth.models.UserManager()),
+                ('objects', django.contrib.auth.models.UserManager()),
             ],
         ),
     ]
